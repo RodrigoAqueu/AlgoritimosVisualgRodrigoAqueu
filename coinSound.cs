@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class coinSound : MonoBehaviour
 {
-    public GameObject prefabItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +16,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void somItem()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(prefabItem, transform.position, transform.rotation);
+        FindObjectOfType<GameManager>().somItem();
+
+        Destroy(this.gameObject);
     }
 }
